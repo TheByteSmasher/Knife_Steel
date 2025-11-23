@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Knife Steel & Sharpening Reference</title>
+  <meta name="format-detection" content="telephone=no">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Namespace to lock styles and prevent host overrides */
+    /* Namespace lock-in to avoid external CSS collisions and auto-link styles */
     .ksr {
       --page-w: 17in;
       --page-h: 11in;
@@ -29,7 +30,13 @@
     }
 
     @page { size: 17in 11in; margin: 0; }
-    html, body { height: 100%; margin: 0; background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: white;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
 
     .ksr .page {
       width: var(--page-w);
@@ -39,6 +46,7 @@
       font-family: var(--body-font);
       color: var(--text-dark);
     }
+
     .ksr .bleed {
       position: absolute;
       left: calc(-1 * var(--bleed));
@@ -51,33 +59,113 @@
       flex-direction: column;
     }
 
-    .ksr header { text-align: center; padding-top: 0.12in; padding-bottom: 0.06in; }
-    .ksr h1 { margin: 0; font-family: var(--header-font); font-weight: 700; font-size: 48pt; line-height: 1; color: var(--text-dark); }
-    .ksr .subtitle { margin-top: 6px; font-size: 14pt; color: var(--muted); }
+    .ksr header {
+      text-align: center;
+      padding-top: 0.12in;
+      padding-bottom: 0.06in;
+      flex: 0 0 auto;
+    }
+    .ksr h1 {
+      margin: 0;
+      font-family: var(--header-font);
+      font-weight: 700;
+      font-size: 48pt;
+      line-height: 1;
+      color: var(--text-dark);
+    }
+    .ksr .subtitle {
+      margin-top: 6px;
+      font-size: 14pt;
+      color: var(--muted);
+      font-family: var(--body-font);
+    }
 
-    .ksr .main { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.12in; flex: 1 1 auto; margin-top: 0.12in; margin-bottom: 0.12in; align-items: start; }
+    .ksr .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.12in;
+      flex: 1 1 auto;
+      margin-top: 0.12in;
+      margin-bottom: 0.12in;
+      align-items: start;
+    }
 
-    .ksr .panel { display: flex; flex-direction: column; padding: 0.12in; border-radius: 6px; }
-    .ksr .panel-header { font-family: var(--header-font); font-size: 38pt; font-weight: 700; text-align: center; margin-bottom: 0.12in; padding-bottom: 0.06in; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .ksr .panel {
+      display: flex;
+      flex-direction: column;
+      padding: 0.12in;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .ksr .panel-header {
+      font-family: var(--header-font);
+      font-size: 38pt;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.12in;
+      padding-bottom: 0.06in;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
 
     .ksr .bg-polished { background: var(--polished-bg); }
     .ksr .bg-toothy   { background: var(--toothy-bg); }
     .ksr .bg-balanced { background: var(--balanced-bg); }
 
-    .ksr .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
-    .ksr .card { background: white; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 9pt; }
+    .ksr .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-content: start;
+    }
 
-    .ksr .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
-    .ksr .card-head .name { font-family: var(--header-font); font-weight: 700; font-size: 22pt; line-height: 1; }
-    .ksr .hrc { font-variant: small-caps; font-size: 9pt; color: #333; font-weight: 600; }
+    .ksr .card {
+      background: white;
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      font-size: 9pt;
+    }
 
-    .ksr ul.traits { margin: 0; padding-left: 0; list-style: none; }
-    .ksr ul.traits li { margin: 2px 0; line-height: 1.2; font-size: 9pt; }
+    .ksr .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+    .ksr .card-head .name {
+      font-family: var(--header-font);
+      font-weight: 700;
+      font-size: 22pt;
+      line-height: 1;
+    }
+    .ksr .hrc {
+      font-variant: small-caps;
+      font-size: 9pt;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .ksr ul.traits {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .ksr ul.traits li {
+      margin: 2px 0;
+      line-height: 1.2;
+      font-size: 9pt;
+    }
 
     .ksr .process { font-size: 8pt; color: #333; }
     .ksr .mfg { font-size: 8.5pt; color: #444; }
 
-    /* Locked-in grit pill style — double-scoped to defeat host overrides */
+    /* Locked-in grit pill style — double-scoped to defeat host overrides and auto-link styling */
     .ksr .grit-pill,
     .ksr span.grit-pill {
       background: var(--grit-pill) !important;
@@ -87,15 +175,37 @@
       font-weight: 600 !important;
       font-size: 8.5pt !important;
       display: inline-block !important;
+      text-decoration: none !important;
     }
 
-    .ksr .dps { display: flex; flex-direction: column; gap: 4px; }
-    .ksr .dps-row { display: flex; align-items: flex-start; gap: 6px; line-height: 1.2; }
-    .ksr .bar-green, .ksr .bar-orange { width: 4px; border-radius: 1px; flex-shrink: 0; margin-top: 2px; align-self: stretch; }
+    .ksr .dps {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ksr .dps-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.2;
+    }
+    .ksr .bar-green, .ksr .bar-orange {
+      width: 4px;
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      align-self: stretch;
+    }
     .ksr .bar-green  { background-color: var(--dps-green); }
     .ksr .bar-orange { background-color: var(--dps-orange); }
 
-    .ksr footer { font-size: 9pt; color: #555; text-align: center; padding-top: 6px; }
+    .ksr footer {
+      font-size: 9pt;
+      color: #555;
+      text-align: center;
+      padding-top: 6px;
+      flex: 0 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -527,7 +637,7 @@
                 </div>
               </div>
 
-              <!-- AR‑RPM9 (optimal 60) — capped at 2000, no qualifier -->
+              <!-- AR‑RPM9 (optimal 60) -->
               <div class="card">
                 <div class="card-head"><div class="name">AR‑RPM9</div><div class="hrc">59–61 / 60</div></div>
                 <div class="process">Process: Spray‑form (CJRB/Artisan), not PM</div>
@@ -605,7 +715,7 @@
         </main>
 
         <footer>
-          <div style="margin-bottom:6px;">© 2025 Knife Steel &amp; Sharpening Reference</div>
+          <div style="margin-bottom:6px;">© 2025 Knife Steel &amp; Sharpening Reference v2.2</div>
           <div style="font-size:9pt; color:#444;">
             Icons: 🛡️ Toughness • 💧 Corrosion • 🪨 Sharpening ease/difficulty • ⚙️ Carbide content • 🏭 Manufacturers who frequently hit optimal HRC
           </div>

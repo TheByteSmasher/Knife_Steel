@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>Knife Steel & Sharpening Reference</title>
   <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Namespace lock-in to avoid external CSS collisions and auto-link styles */
+    /* Namespace lock-in to avoid external CSS collisions and auto-link styling */
     .ksr {
       --page-w: 17in;
       --page-h: 11in;
@@ -165,9 +166,10 @@
     .ksr .process { font-size: 8pt; color: #333; }
     .ksr .mfg { font-size: 8.5pt; color: #444; }
 
-    /* Locked-in grit pill style — double-scoped to defeat host overrides and auto-link styling */
+    /* Locked-in grit pill style — double-scoped and safe against auto-link wrapping */
     .ksr .grit-pill,
-    .ksr span.grit-pill {
+    .ksr span.grit-pill,
+    .ksr .grit-pill a {
       background: var(--grit-pill) !important;
       color: white !important;
       padding: 4px 8px !important;
@@ -177,6 +179,11 @@
       display: inline-block !important;
       text-decoration: none !important;
     }
+    /* If a mobile renderer wraps numbers in <a>, keep pill text white and disable link look */
+    .ksr .grit-pill a { pointer-events: none !important; }
+
+    /* Global links inside namespace: never turn blue */
+    .ksr a { color: inherit; text-decoration: none; }
 
     .ksr .dps {
       display: flex;
@@ -205,6 +212,24 @@
       text-align: center;
       padding-top: 6px;
       flex: 0 0 auto;
+    }
+
+    /* Mobile overrides for readability; print layout remains intact */
+    @media (max-width: 768px) {
+      .ksr .page { width: 100%; height: auto; }
+      .ksr .bleed { position: static; width: auto; height: auto; padding: 16px; }
+      .ksr .main { grid-template-columns: 1fr; gap: 12px; }
+      .ksr .card-grid { grid-template-columns: 1fr; }
+      .ksr h1 { font-size: 24pt; }
+      .ksr .panel-header { font-size: 20pt; }
+      .ksr .card { font-size: 0.95rem; padding: 12px; }
+      .ksr .grit-pill { font-size: 1rem !important; padding: 6px 12px !important; }
+    }
+    @media (min-width: 769px) and (max-width: 1200px) {
+      .ksr .main { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1201px) {
+      .ksr .main { grid-template-columns: 1fr 1fr 1fr; }
     }
   </style>
 </head>
@@ -715,7 +740,7 @@
         </main>
 
         <footer>
-          <div style="margin-bottom:6px;">© 2025 Knife Steel &amp; Sharpening Reference v2.2</div>
+          <div style="margin-bottom:6px;">© 2025 Knife Steel &amp; Sharpening Reference v2.3</div>
           <div style="font-size:9pt; color:#444;">
             Icons: 🛡️ Toughness • 💧 Corrosion • 🪨 Sharpening ease/difficulty • ⚙️ Carbide content • 🏭 Manufacturers who frequently hit optimal HRC
           </div>

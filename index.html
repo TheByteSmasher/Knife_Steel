@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Knife Steel & Sharpening Reference</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --page-w: 17in;
+      --page-h: 11in;
+      --bleed: 0.125in;
+
+      --polished-bg: #E8F4FF;
+      --toothy-bg: #F2F2F2;
+      --balanced-bg: #E8F9F5;
+
+      --grit-pill: #4B4CFF;
+      --dps-green: #2E8B57;
+      --dps-orange: #FF8C42;
+
+      --text-dark: #1a1a1a;
+      --muted: #555555;
+
+      --header-font: "Aptos","Segoe UI Semibold","Segoe UI",Inter,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+      --body-font: Inter,"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+
+      --panel-padding: 0.18in;
+    }
+
+    @page { size: 17in 11in; margin: 0; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: white;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      position: relative;
+      font-family: var(--body-font);
+      color: var(--text-dark);
+    }
+
+    .bleed {
+      position: absolute;
+      left: calc(-1 * var(--bleed));
+      top: calc(-1 * var(--bleed));
+      width: calc(var(--page-w) + (var(--bleed) * 2));
+      height: calc(var(--page-h) + (var(--bleed) * 2));
+      box-sizing: border-box;
+      padding: var(--panel-padding);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 0.12in;
+      padding-bottom: 0.06in;
+      flex: 0 0 auto;
+    }
+    h1 {
+      margin: 0;
+      font-family: var(--header-font);
+      font-weight: 700;
+      font-size: 48pt;
+      line-height: 1;
+      color: var(--text-dark);
+    }
+    .subtitle {
+      margin-top: 6px;
+      font-size: 14pt;
+      color: var(--muted);
+      font-family: var(--body-font);
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.12in;
+      flex: 1 1 auto;
+      margin-top: 0.12in;
+      margin-bottom: 0.12in;
+      align-items: start;
+    }
+
+    .panel {
+      display: flex;
+      flex-direction: column;
+      padding: 0.12in;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .panel-header {
+      font-family: var(--header-font);
+      font-size: 38pt;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.12in;
+      padding-bottom: 0.06in;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .bg-polished { background: var(--polished-bg); }
+    .bg-toothy   { background: var(--toothy-bg); }
+    .bg-balanced { background: var(--balanced-bg); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .card {
+      background: white;
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      font-size: 9pt;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+    .card-head .name {
+      font-family: var(--header-font);
+      font-weight: 700;
+      font-size: 22pt;
+      line-height: 1;
+    }
+    .hrc {
+      font-variant: small-caps;
+      font-size: 9pt;
+      color: #333;
+      font-weight: 600;
+    }
+
+    ul.traits {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    ul.traits li {
+      margin: 2px 0;
+      line-height: 1.2;
+      font-size: 9pt;
+    }
+
+    .process { font-size: 8pt; color: #333; }
+    .mfg { font-size: 8.5pt; color: #444; }
+
+    .grit-pill {
+      display: inline-block;
+      background: var(--grit-pill);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 8.5pt;
+    }
+
+    .dps {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .dps-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.2;
+    }
+    .bar-green, .bar-orange {
+      width: 4px;
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      align-self: stretch;
+    }
+    .bar-green  { background-color: var(--dps-green); }
+    .bar-orange { background-color: var(--dps-orange); }
+
+    footer {
+      font-size: 9pt;
+      color: #555;
+      text-align: center;
+      padding-top: 6px;
+      flex: 0 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="document" aria-label="Knife Steel & Sharpening Reference">
+    <div class="bleed">
+
+      <header>
+        <h1>Knife Steel &amp; Sharpening Reference</h1>
+        <div class="subtitle">Steel profiles, sharpening grit guidance, DPS tradeoffs</div>
+      </header>
+
+      <main class="main" role="main">
+
+        <!-- Polished Finish -->
+        <section class="panel bg-polished" aria-labelledby="polished-title">
+          <div id="polished-title" class="panel-header">Polished Finish</div>
+          <div class="card-grid">
+
+            <!-- 154CM (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">154CM</div><div class="hrc">58–60 / 59</div></div>
+              <div class="process">Process: Conventional melt</div>
+              <ul class="traits">
+                <li>🛡️ Good toughness</li>
+                <li>💧 High corrosion resistance</li>
+                <li>🪨 Moderate sharpening ease</li>
+                <li>⚙️ Mixed carbides</li>
+              </ul>
+              <div class="mfg">🏭 Buck, Spyderco, Benchmade</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>17 DPS – good retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>19 DPS – best chipping resistance, slight retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- CPM-154 (PM variant) -->
+            <div class="card">
+              <div class="card-head"><div class="name">CPM-154</div><div class="hrc">60–61 / 61</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Improved toughness vs 154CM</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Easier polish</li>
+                <li>⚙️ Refined carbides</li>
+              </ul>
+              <div class="mfg">🏭 Bark River, TRM</div>
+              <span class="grit-pill">2000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – excellent polished utility</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – added robustness for mixed media</div></div>
+              </div>
+            </div>
+
+            <!-- S30V (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">S30V</div><div class="hrc">58–60 / 59</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Balanced PM toughness</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Moderate sharpening difficulty</li>
+                <li>⚙️ Vanadium carbides</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco, Benchmade, Kershaw</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – strong retention at high polish</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – better chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- AEB-L (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">AEB-L</div><div class="hrc">59–60 / 60</div></div>
+              <div class="process">Process: Conventional melt (Uddeholm)</div>
+              <ul class="traits">
+                <li>🛡️ High toughness for stainless</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Very easy sharpening</li>
+                <li>⚙️ Ultra-fine carbides</li>
+              </ul>
+              <div class="mfg">🏭 Ketuo, Boker, Custom makers</div>
+              <span class="grit-pill">3000+ grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>15 DPS – superb clean push cuts</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>17 DPS – higher chipping resistance, slight retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- Elmax (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">Elmax</div><div class="hrc">60–62 / 62</div></div>
+              <div class="process">Process: PM (Böhler)</div>
+              <ul class="traits">
+                <li>🛡️ Balanced PM toughness</li>
+                <li>💧 High corrosion resistance</li>
+                <li>🪨 Moderate sharpening ease</li>
+                <li>⚙️ Fine carbides</li>
+              </ul>
+              <div class="mfg">🏭 LionSteel, Bark River, ZT, Rike</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – strong retention at polish</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- MagnaCut (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">MagnaCut</div><div class="hrc">61–63 / 62</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Premium balance of toughness</li>
+                <li>💧 Excellent corrosion resistance</li>
+                <li>🪨 Moderate sharpening ease</li>
+                <li>⚙️ Fine carbides</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco, Benchmade, TRM, Bark River, WE, Rike, Vosteed</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – excellent retention without micro-chipping</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance in EDC</div></div>
+              </div>
+            </div>
+
+            <!-- Nitro-X7 (stainless) -->
+            <div class="card">
+              <div class="card-head"><div class="name">Nitro-X7</div><div class="hrc">62–63 / 63</div></div>
+              <div class="process">Process: Conventional melt</div>
+              <ul class="traits">
+                <li>🛡️ Near-PM edge stability</li>
+                <li>💧 High corrosion resistance</li>
+                <li>🪨 Good sharpening ease</li>
+                <li>⚙️ Fine-grained</li>
+              </ul>
+              <div class="mfg">🏭 Real Steel, Miguron, Vosteed</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – optimal retention at polish</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – improved chip resistance</div></div>
+              </div>
+            </div>
+
+            <!-- 20CV (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">20CV</div><div class="hrc">60–62 / 61</div></div>
+              <div class="process">Process: PM (Latrobe)</div>
+              <ul class="traits">
+                <li>🛡️ Good toughness for high-carbide stainless</li>
+                <li>💧 Excellent corrosion resistance</li>
+                <li>🪨 Moderate to hard sharpening</li>
+                <li>⚙️ High vanadium carbides</li>
+              </ul>
+              <div class="mfg">🏭 Benchmade, ZT, WE</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – strong retention at refined polish</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – added stability for abrasive media</div></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Toothy Finish -->
+        <section class="panel bg-toothy" aria-labelledby="toothy-title">
+          <div id="toothy-title" class="panel-header">Toothy Finish</div>
+          <div class="card-grid">
+
+            <!-- D2 (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">D2</div><div class="hrc">59–61 / 60</div></div>
+              <div class="process">Process: Conventional melt</div>
+              <ul class="traits">
+                <li>🛡️ Tool steel toughness</li>
+                <li>💧 Semi-stainless</li>
+                <li>🪨 Moderate sharpening difficulty</li>
+                <li>⚙️ Coarse carbides</li>
+              </ul>
+              <div class="mfg">🏭 Ontario, Cold Steel, Civivi, Ketuo, Vosteed</div>
+              <span class="grit-pill">600–800 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – aggressive bite, durable toothy edge</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – maximal chip resistance for rough cutting</div></div>
+              </div>
+            </div>
+
+            <!-- CPM-D2 (PM variant) -->
+            <div class="card">
+              <div class="card-head"><div class="name">CPM-D2</div><div class="hrc">59–61 / 60</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Improved toughness vs D2</li>
+                <li>💧 Semi-stainless</li>
+                <li>🪨 Easier sharpening than conventional D2</li>
+                <li>⚙️ Refined carbides</li>
+              </ul>
+              <div class="mfg">🏭 Custom makers</div>
+              <span class="grit-pill">1000–2000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – retains bite at higher grit</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – increased toughness under lateral stress</div></div>
+              </div>
+            </div>
+
+            <!-- M398 (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">M398</div><div class="hrc">62–64 / 64</div></div>
+              <div class="process">Process: PM (Böhler)</div>
+              <ul class="traits">
+                <li>🛡️ Wear-focused stainless</li>
+                <li>💧 High corrosion resistance</li>
+                <li>🪨 Difficult to sharpen</li>
+                <li>⚙️ Carbide-heavy</li>
+              </ul>
+              <div class="mfg">🏭 Böhler customs, Spyderco (limited)</div>
+              <span class="grit-pill">600–800 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – max retention, lower chip resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – improved stability</div></div>
+              </div>
+            </div>
+
+            <!-- K390 (PM-only tool steel) -->
+            <div class="card">
+              <div class="card-head"><div class="name">K390</div><div class="hrc">64–66 / 65</div></div>
+              <div class="process">Process: PM (Böhler)</div>
+              <ul class="traits">
+                <li>🛡️ High wear resistance</li>
+                <li>💧 Non-stainless</li>
+                <li>🪨 Difficult to sharpen</li>
+                <li>⚙️ Carbide-heavy</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco, Böhler customs</div>
+              <span class="grit-pill">600–800 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – very high retention, moderate chip resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – best chip resistance</div></div>
+              </div>
+            </div>
+
+            <!-- Rex 45 (PM/high-speed) -->
+            <div class="card">
+              <div class="card-head"><div class="name">Rex 45</div><div class="hrc">64–66 / 65</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ High-speed tool steel</li>
+                <li>💧 Non-stainless</li>
+                <li>🪨 Moderate sharpening difficulty</li>
+                <li>⚙️ Carbide-rich</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco, Crucible customs</div>
+              <span class="grit-pill">600 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – strong retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- Rex 121 (PM supersteel, full width) -->
+            <div class="card" style="grid-column: 1 / -1;">
+              <div class="card-head"><div class="name">Rex 121</div><div class="hrc">68–70 / 70</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Super steel hardness</li>
+                <li>💧 Non-stainless</li>
+                <li>🪨 Very difficult to sharpen</li>
+                <li>⚙️ Extremely carbide-heavy</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco (special runs), Crucible customs</div>
+              <span class="grit-pill">400–600 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>22 DPS – extreme retention, low chip resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>24 DPS – best chip resistance, slight retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- M4 (conventional, rare) -->
+            <div class="card">
+              <div class="card-head"><div class="name">M4</div><div class="hrc">62–64 / 63</div></div>
+              <div class="process">Process: Conventional melt (rare)</div>
+              <ul class="traits">
+                <li>🛡️ High hardness tool steel</li>
+                <li>💧 Non-stainless</li>
+                <li>🪨 Difficult sharpening</li>
+                <li>⚙️ High vanadium carbides</li>
+              </ul>
+              <div class="mfg">🏭 Historical/limited</div>
+              <span class="grit-pill">600–800 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – aggressive bite, strong retention</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – improved stability at high hardness</div></div>
+              </div>
+            </div>
+
+            <!-- CPM-M4 (PM variant) -->
+            <div class="card">
+              <div class="card-head"><div class="name">CPM-M4</div><div class="hrc">63–65 / 64</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Very high toughness for hardness class</li>
+                <li>💧 Non-stainless</li>
+                <li>🪨 Difficult sharpening</li>
+                <li>⚙️ Refined high vanadium carbides</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco, Benchmade, Custom</div>
+              <span class="grit-pill">1000–2000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – excellent retention with workable polish</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – increased stability on hard media</div></div>
+              </div>
+            </div>
+
+            <!-- CPM-3V (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">CPM-3V</div><div class="hrc">58–60 / 59</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Exceptional toughness</li>
+                <li>💧 Non-stainless</li>
+                <li>🪨 Relatively easy sharpening</li>
+                <li>⚙️ Moderate carbides</li>
+              </ul>
+              <div class="mfg">🏭 Bark River, TRC, Custom</div>
+              <span class="grit-pill">600–1000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – durable edge with sustained bite</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – maximal resistance to rolling/chipping</div></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Balanced Finish -->
+        <section class="panel bg-balanced" aria-labelledby="balanced-title">
+          <div id="balanced-title" class="panel-header">Balanced Finish</div>
+          <div class="card-grid">
+
+            <!-- 440C (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">440C</div><div class="hrc">57–59 / 58</div></div>
+              <div class="process">Process: Conventional melt</div>
+              <ul class="traits">
+                <li>🛡️ Moderate toughness</li>
+                <li>💧 High corrosion resistance</li>
+                <li>🪨 Easy sharpening</li>
+                <li>⚙️ Coarser carbides</li>
+              </ul>
+              <div class="mfg">🏭 Buck, Case, CRKT</div>
+              <span class="grit-pill">800–1000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>16 DPS – decent retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>18 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- CPM-440V / S60V (PM variant) -->
+            <div class="card">
+              <div class="card-head"><div class="name">CPM-440V (S60V)</div><div class="hrc">59–61 / 60</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Lower toughness vs 440C</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Difficult sharpening</li>
+                <li>⚙️ Very high vanadium carbides</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco (historical), Custom</div>
+              <span class="grit-pill">600–800 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – aggressive slicing bite with long wear</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – added stability for abrasive cutting</div></div>
+              </div>
+            </div>
+
+            <!-- 14C28N (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">14C28N</div><div class="hrc">58–60 / 60</div></div>
+              <div class="process">Process: Conventional melt (Sandvik)</div>
+              <ul class="traits">
+                <li>🛡️ Balanced stainless</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Easy sharpening</li>
+                <li>⚙️ Fine balanced carbides</li>
+              </ul>
+              <div class="mfg">🏭 Morakniv, Kershaw, Ruike, Vosteed</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>17 DPS – good retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>19 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- 9Cr13MoV (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">9Cr13MoV</div><div class="hrc">58–60 / 59–60</div></div>
+              <div class="process">Process: Conventional melt (Chinese stainless family)</div>
+              <ul class="traits">
+                <li>🛡️ Budget stainless</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Easy sharpening</li>
+                <li>⚙️ Moderate carbides</li>
+              </ul>
+              <div class="mfg">🏭 Ganzo, Sanrenmu, Civivi, Vosteed</div>
+              <span class="grit-pill">800–1000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – utility bite with dependable retention</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – improved stability for rough tasks</div></div>
+              </div>
+            </div>
+
+            <!-- S35VN (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">S35VN</div><div class="hrc">58–60 / 59</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Improved toughness vs S30V</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Fine-grained edge</li>
+                <li>⚙️ Vanadium carbides</li>
+              </ul>
+              <div class="mfg">🏭 Chris Reeve, Spyderco, Benchmade</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – excellent retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- Nitro-V (conventional) -->
+            <div class="card">
+              <div class="card-head"><div class="name">Nitro-V</div><div class="hrc">59–61 / 61</div></div>
+              <div class="process">Process: Conventional melt</div>
+              <ul class="traits">
+                <li>🛡️ Good toughness</li>
+                <li>💧 High corrosion resistance</li>
+                <li>🪨 Easy sharpening</li>
+                <li>⚙️ Nitrogen alloyed fine carbides</li>
+              </ul>
+              <div class="mfg">🏭 Civivi, Sencut, Kansept, Vosteed</div>
+              <span class="grit-pill">800–1000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – decent retention, moderate chip resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- S45VN (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">S45VN</div><div class="hrc">59–61 / 60</div></div>
+              <div class="process">Process: PM (Crucible)</div>
+              <ul class="traits">
+                <li>🛡️ Higher wear resistance vs S35VN</li>
+                <li>💧 Stainless</li>
+                <li>🪨 Harder to sharpen</li>
+                <li>⚙️ Fine-grained</li>
+              </ul>
+              <div class="mfg">🏭 Spyderco, Benchmade, Custom</div>
+              <span class="grit-pill">1000–3000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>19 DPS – very high retention</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>21 DPS – best chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- M390 (PM-only) -->
+            <div class="card">
+              <div class="card-head"><div class="name">M390</div><div class="hrc">60–62 / 61–62</div></div>
+              <div class="process">Process: PM (Böhler)</div>
+              <ul class="traits">
+                <li>🛡️ High wear resistance</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Harder to sharpen</li>
+                <li>⚙️ Carbide-heavy</li>
+              </ul>
+              <div class="mfg">🏭 Benchmade, Böker, ZT, WE, Kansept, Rike, Vosteed</div>
+              <span class="grit-pill">1000–2000 grit</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – very high retention, moderate chip resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – added stability under hard use</div></div>
+              </div>
+            </div>
+
+            <!-- AR-RPM9 (spray-form) -->
+            <div class="card">
+              <div class="card-head"><div class="name">AR‑RPM9</div><div class="hrc">59–61 / 60</div></div>
+              <div class="process">Process: Spray‑form (CJRB/Artisan), not PM</div>
+              <ul class="traits">
+                <li>🛡️ Balanced toughness</li>
+                <li>💧 Good corrosion resistance</li>
+                <li>🪨 Easy to moderate sharpening</li>
+                <li>⚙️ Moderate carbides (finer than typical ingot)</li>
+              </ul>
+              <div class="mfg">🏭 CJRB, Artisan Cutlery</div>
+              <span class="grit-pill">800–1000 grit (toothy) • 1000–3000 grit (polished)</span>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – balanced EDC bite and retention</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – improved stability for hard materials</div></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <div style="margin-bottom:6px;">© 2025 Knife Steel &amp; Sharpening Reference</div>
+        <div style="font-size:9pt; color:#444;">
+          Icons: 🛡️ Toughness • 💧 Corrosion • 🪨 Sharpening ease/difficulty • ⚙️ Carbide content
+        </div>
+        <div style="margin-top:6px; font-size:9pt; color:#666;">Export: CMYK, 300 DPI, 0.125" bleed, crop marks when printing.</div>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>

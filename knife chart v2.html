@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1700, initial-scale=0.1" />
+<title>Knife Steel Infographic Poster</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --page-w: 17in;
+    --page-h: 11in;
+    --bleed: 0.125in;
+
+    --polished-bg: #E8F4FF;
+    --toothy-bg: #F2F2F2;
+    --balanced-bg: #E8F9F5;
+
+    --grit-pill: #4B4CFF;
+    --dps-green: #2E8B57;
+    --dps-orange: #FF8C42;
+
+    --text-dark: #1a1a1a;
+    --muted: #555555;
+
+    --header-font: "Aptos", "Segoe UI Semibold", "Segoe UI", Inter, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --body-font: Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+    --panel-padding: 0.18in;
+  }
+
+  @page { size: 17in 11in; margin: 0; }
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    box-sizing: border-box;
+    padding: 0;
+    position: relative;
+    font-family: var(--body-font);
+    color: var(--text-dark);
+  }
+
+  .bleed {
+    position: absolute;
+    left: calc(-1 * var(--bleed));
+    top: calc(-1 * var(--bleed));
+    width: calc(var(--page-w) + (var(--bleed) * 2));
+    height: calc(var(--page-h) + (var(--bleed) * 2));
+    box-sizing: border-box;
+    padding: var(--panel-padding);
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    text-align: center;
+    padding-top: 0.12in;
+    padding-bottom: 0.06in;
+    flex: 0 0 auto;
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--header-font);
+    font-weight: 700;
+    font-size: 48pt;
+    line-height: 1;
+    color: var(--text-dark);
+  }
+  .subtitle {
+    margin-top: 6px;
+    font-size: 14pt;
+    color: var(--muted);
+    font-family: var(--body-font);
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.12in;
+    flex: 1 1 auto;
+    margin-top: 0.12in;
+    margin-bottom: 0.12in;
+    align-items: start;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    padding: 0.12in;
+    border-radius: 6px;
+    box-sizing: border-box;
+    overflow: visible; /* prevent clipping */
+  }
+  .panel-header {
+    font-family: var(--header-font);
+    font-size: 38pt;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.12in;
+    padding-bottom: 0.06in;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .bg-polished { background: var(--polished-bg); }
+  .bg-toothy   { background: var(--toothy-bg); }
+  .bg-balanced { background: var(--balanced-bg); }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+    grid-auto-rows: auto; /* variable heights */
+  }
+
+  .card {
+    background: white;
+    border-radius: 6px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: auto;       /* allow content to grow */
+    min-height: 0;
+    overflow: visible;  /* no cut-offs */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-size: 9pt;
+  }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+  }
+  .card-head .name {
+    font-family: var(--header-font);
+    font-weight: 700;
+    font-size: 22pt;
+    line-height: 1;
+  }
+  .hrc {
+    font-variant: small-caps;
+    font-size: 9pt;
+    color: #333;
+    font-weight: 600;
+  }
+
+  ul.traits {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  ul.traits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 2px 0;
+    line-height: 1.2;
+    font-size: 9pt;
+  }
+  .icon {
+    width: 14px; height: 14px;
+    flex: 0 0 14px;
+    stroke: currentColor; fill: none;
+  }
+
+  .mfg {
+    font-size: 8.5pt;
+    color: #444;
+  }
+
+  .grit-pill {
+    display: inline-block;
+    background: var(--grit-pill);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 8.5pt;
+  }
+
+  .dps {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .dps-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.2;
+  }
+  .bar-green, .bar-orange {
+    width: 4px;
+    border-radius: 1px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    align-self: stretch;
+  }
+  .bar-green  { background-color: var(--dps-green); }
+  .bar-orange { background-color: var(--dps-orange); }
+
+  footer {
+    font-size: 9pt;
+    color: #555;
+    text-align: center;
+    padding-top: 6px;
+    flex: 0 0 auto;
+  }
+
+  @media print {
+    html, body { background: white; }
+    .bleed { left: calc(-1 * var(--bleed)); top: calc(-1 * var(--bleed)); width: calc(var(--page-w) + (var(--bleed) * 2)); height: calc(var(--page-h) + (var(--bleed) * 2)); }
+    @page { size: 17in 11in; margin: 0; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 1200px) {
+    .card-head .name { font-size: 18pt; }
+    .panel-header { font-size: 28pt; }
+    h1 { font-size: 36pt; }
+  }
+</style>
+</head>
+<body>
+  <div class="page" role="document" aria-label="Knife Steel Infographic Poster">
+    <div class="bleed">
+
+      <header>
+        <h1>Knife Steel Infographic Poster</h1>
+        <div class="subtitle">Polished | Toothy | Balanced Finish — Steel profiles, grit guidance, DPS tradeoffs</div>
+      </header>
+
+      <main class="main" role="main">
+
+        <!-- Polished Finish -->
+        <section class="panel bg-polished" aria-labelledby="polished-title">
+          <div id="polished-title" class="panel-header">Polished Finish</div>
+          <div class="card-grid">
+
+            <!-- 154CM -->
+            <div class="card">
+              <div class="card-head">
+                <div class="name">154CM</div><div class="hrc">58–60 / 59</div>
+              </div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> High corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Good edge retention</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Buck, Spyderco, Benchmade, CRKT</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>17 DPS – good edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>19 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- S30V -->
+            <div class="card">
+              <div class="card-head"><div class="name">S30V</div><div class="hrc">58–60 / 59</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> High wear resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Moderate sharpening difficulty</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Spyderco, Benchmade, Kershaw</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – strong edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- AEB-L -->
+            <div class="card">
+              <div class="card-head"><div class="name">AEB-L</div><div class="hrc">59–60 / 60</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Razor sharpness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Extreme toughness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Excellent sharpening ease</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Ketuo, Boker, Custom makers</div>
+              <div><span class="grit-pill">3000+ grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>15 DPS – superb edge retention</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>17 DPS – high chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- Elmax -->
+            <div class="card">
+              <div class="card-head"><div class="name">Elmax</div><div class="hrc">60–62 / 62</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Balanced PM toughness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Moderate sharpening ease</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: LionSteel, Bark River, ZT, Rike</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – strong edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- MagnaCut -->
+            <div class="card">
+              <div class="card-head"><div class="name">MagnaCut</div><div class="hrc">61–63 / 62</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Premium balance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Excellent corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Strong edge retention</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Moderate sharpening ease</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Spyderco, Benchmade, TRM, Bark River, WE, Rike, Vosteed</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – excellent edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- Nitro-X7 -->
+            <div class="card">
+              <div class="card-head"><div class="name">Nitro-X7</div><div class="hrc">62–63 / 63</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Near-PM edge stability</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> High corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Good sharpening ease</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Real Steel, Miguron, Vosteed</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – optimal edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Toothy Finish -->
+        <section class="panel bg-toothy" aria-labelledby="toothy-title">
+          <div id="toothy-title" class="panel-header">Toothy Finish</div>
+          <div class="card-grid">
+
+            <!-- D2 -->
+            <div class="card">
+              <div class="card-head"><div class="name">D2</div><div class="hrc">59–61 / 60</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Tool steel toughness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Coarse carbides</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Moderate corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Moderate sharpening difficulty</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Semi-stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Ontario, Cold Steel, Civivi, Ketuo, Vosteed</div>
+              <div><span class="grit-pill">600–800 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – strong edge retention, lower chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- M398 -->
+            <div class="card">
+              <div class="card-head"><div class="name">M398</div><div class="hrc">62–64 / 64</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Extreme wear resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Difficult to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Carbide-heavy</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Böhler customs, Spyderco (limited)</div>
+              <div><span class="grit-pill">600–800 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – max edge retention, lower chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- K390 -->
+            <div class="card">
+              <div class="card-head"><div class="name">K390</div><div class="hrc">64–66 / 65</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> High wear resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Tough</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Difficult to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Carbide-heavy</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Non-stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Spyderco, Böhler customs</div>
+              <div><span class="grit-pill">600–800 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – very high edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- Rex 45 -->
+            <div class="card">
+              <div class="card-head"><div class="name">Rex 45</div><div class="hrc">64–66 / 65</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> High-speed steel</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Cobalt boosted hardness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Moderate sharpening difficulty</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Carbide-heavy</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Non-stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Spyderco, Crucible customs</div>
+              <div><span class="grit-pill">600 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – strong edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>22 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- Rex 121 (full width) -->
+            <div class="card" style="grid-column: 1 / -1;">
+              <div class="card-head"><div class="name">Rex 121</div><div class="hrc">68–70 / 70</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Super steel</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Extreme hardness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Max wear resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Very difficult to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Carbide-heavy</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Non-stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Spyderco, Crucible customs</div>
+              <div><span class="grit-pill">400–600 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>22 DPS – extreme edge retention, low chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>24 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Balanced Finish -->
+        <section class="panel bg-balanced" aria-labelledby="balanced-title">
+          <div id="balanced-title" class="panel-header">Balanced Finish</div>
+          <div class="card-grid">
+
+            <!-- 440C -->
+            <div class="card">
+              <div class="card-head"><div class="name">440C</div><div class="hrc">57–59 / 58</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Budget stainless</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Easy to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Decent edge retention</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Buck, Case, CRKT</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>16 DPS – decent edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>18 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- 14C28N -->
+            <div class="card">
+              <div class="card-head"><div class="name">14C28N</div><div class="hrc">58–60 / 60</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Balanced stainless</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Easy sharpening</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Morakniv, Kershaw, Ruike, Vosteed</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>17 DPS – good edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>19 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- 9Cr13MoV -->
+            <div class="card">
+              <div class="card-head"><div class="name">9Cr13MoV</div><div class="hrc">58–60 / 59–60</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Budget stainless</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Decent edge retention</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Moderate sharpening ease</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Ganzo, Sanrenmu, Civivi, Vosteed</div>
+              <div><span class="grit-pill">600–800 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – moderate edge retention and chipping resistance</div></div>
+              </div>
+            </div>
+
+            <!-- S35VN -->
+            <div class="card">
+              <div class="card-head"><div class="name">S35VN</div><div class="hrc">58–60 / 59</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Improved toughness over S30V</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Chris Reeve, Spyderco, Benchmade</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – excellent edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- Nitro-V -->
+            <div class="card">
+              <div class="card-head"><div class="name">Nitro-V</div><div class="hrc">59–61 / 61</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z" stroke-width="1.2"/></svg> Balanced toughness</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Easy to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Civivi, Sencut, Kansept, Vosteed</div>
+              <div><span class="grit-pill">800–1000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>18 DPS – decent edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>20 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- S45VN -->
+            <div class="card">
+              <div class="card-head"><div class="name">S45VN</div><div class="hrc">59–61 / 60</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Higher wear resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Harder to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Fine-grained</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Spyderco, Benchmade, Custom makers</div>
+              <div><span class="grit-pill">1000–3000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>19 DPS – very high edge retention, moderate chipping resistance</div></div>
+                <div class="dps-row"><div class="bar-orange"></div><div>21 DPS – best chipping resistance, slight edge retention trade-off</div></div>
+              </div>
+            </div>
+
+            <!-- M390 -->
+            <div class="card">
+              <div class="card-head"><div class="name">M390</div><div class="hrc">60–62 / 61–62</div></div>
+              <ul class="traits">
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> High wear resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Good corrosion resistance</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l4-4 4 4 6-6 4 4v6H3z" stroke-width="1.2"/></svg> Harder to sharpen</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke-width="1.2"/></svg> Carbide-heavy</li>
+                <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 2s5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 5-9 5-9z" stroke-width="1.2"/></svg> Stainless</li>
+              </ul>
+              <div class="mfg">🏭 Manufacturers: Benchmade, Böker, ZT, WE, Kansept, Rike, Vosteed</div>
+              <div><span class="grit-pill">1000–2000 grit</span></div>
+              <div class="dps">
+                <div class="dps-row"><div class="bar-green"></div><div>20 DPS – very high edge retention, moderate chipping resistance</div></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <div style="margin-bottom:6px;">© 2025 Knife Steel Infographic</div>
+        <div style="font-size:9pt; color:#444;">
+          Icons: Toughness (shield), Corrosion (droplet), Sharpening ease (stone), Carbide content (gear)
+        </div>
+        <div style="margin-top:6px; font-size:9pt; color:#666;">Export: CMYK, 300 DPI, 0.125" bleed, crop marks when printing.</div>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>
